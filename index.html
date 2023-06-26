@@ -1,13 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<html>
+<head>
+  <title>Canvas Drawing</title>
+  <style>
+    body {
+      --canvasWidth: 235px;
+      --canvasHeight: 183px;
+    }
+    #canvas {
+      border: 1px solid #000;
+      /* width: var(--canvasWidth);
+      height: var(--canvasHeight); */
+    }
+
+    form {
+      display: flex;
+      justify-content: space-between;
+      width: var(--canvasWidth);
+      margin: 20px 0;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      width: var(--canvasWidth);
+    }
+    
+    .range-wrapper {
+      width: var(--canvasWidth);
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" height="133px" width="235px"></canvas>
+  <!-- create a form with checkboxes for five different colors -->
+  <form id="color-form">
+    <div>
+      <input type="checkbox" name="color-blue" value="#1292EE" checked>
+      <label for="color-blue">Blue</label>
+    </div>
+    <div>
+      <input type="checkbox" name="color-gold" value="#FFC555">
+      <label for="color-gold">Gold</label>
+    </div>
+    <div>
+      <input type="checkbox" name="color-green" value="#56C288">
+      <label for="color-green">Green</label>
+    </div>
+    <div>
+      <input type="checkbox" name="color-white" value="#FFFFFF">
+      <label for="color-white">Eraser</label>
+    </div>
+  </form>
+  
+  <div class="range-wrapper">
+    <input type="range" id="size" name="size"
+          min="0" max="11">
+    <label for="size">Size</label>
+  </div>
+
+  <div class="buttons">
+    <button id="save">Save</button>
+    <button id="load">Load</button>
+    <button id="clear">Clear</button>
+  </div>
+
+  <script type="module" src="script.js"></script>
+</body>
 </html>
